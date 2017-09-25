@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:07:40 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:39:35 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/24 20:22:46 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 char	*ft_strcat(char *dest, const char *src)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = ft_strlen(dest);

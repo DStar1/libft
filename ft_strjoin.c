@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 17:16:54 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:42:27 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/25 13:41:01 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "libft.h"
 
-char	*ft_strloop(char const *s1, char const *s2, int s1_len, int s2_len)
+static char	*ft_strloop(char const *s1, char const *s2, int s1_len, int s2_len)
 {
 	char	*fresh;
 	int		i;
@@ -44,7 +44,7 @@ char	*ft_strloop(char const *s1, char const *s2, int s1_len, int s2_len)
 	return (fresh);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*fresh;
 	int		s1_len;

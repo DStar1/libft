@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/21 19:11:57 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:34:29 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:14:27 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,29 @@
 
 #include "libft.h"
 
-int		ft_whitespaces(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n');
-}
-
 char	*ft_strtrim(char const *s)
 {
-	int		start;
-	int		end;
-	int		loop;
 	int		i;
+	int		len;
 	char	*str;
 
-	i = 0;
-	start = 0;
 	if (s == NULL)
 		return (NULL);
-	end = ft_strlen(s);
-	while (ft_whitespaces(s[start]) == 1)
-		start++;
-	if (start == end)
-		return ("");
-	while (ft_whitespaces(s[end - 1]) == 1)
-		end--;
-	loop = end - start;
-	str = ft_strnew(loop);
+	len = ft_strlen(s);
+	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
+		len--;
+	i = -1;
+	while (s[++i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		len--;
+	if (len <= 0)
+		len = 0;
+	str = (char*)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	while (i < loop)
-		str[i++] = s[start++];
+	s += i;
+	i = -1;
+	while (++i < len)
+		str[i] = *s++;
 	str[i] = '\0';
 	return (str);
 }

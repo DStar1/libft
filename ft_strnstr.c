@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:08:49 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:29:03 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/25 13:53:09 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,27 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
+	const char	*lil_ptr;
+	const char	*big_ptr;
+	size_t		lil_len;
+	size_t		big_len;
 
-	if (*s2 == '\0')
-		return ((char*)s1);
-	i = 0;
-	while (*s1 && n)
+	if (*little == '\0')
+		return ((char*)big);
+	lil_len = ft_strlen(little);
+	big_len = ft_strlen(big);
+	while (len-- >= lil_len && big_len-- >= lil_len)
 	{
-		if (*s1 == s2[i])
-			i++;
-		else
-			i = 0;
-		if (s2[i] == '\0')
-			return ((char*)(s1 - i + 1));
-		s1++;
-		n--;
+		lil_ptr = little;
+		big_ptr = big;
+		while (*lil_ptr++ == *big_ptr++)
+		{
+			if (*lil_ptr == '\0')
+				return ((char*)big);
+		}
+		big++;
 	}
 	return (NULL);
 }

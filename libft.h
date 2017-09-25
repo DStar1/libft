@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 16:56:52 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:42:49 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/25 14:55:52 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct		s_list
 }					t_list;
 
 void				ft_putchar(char c);
-void				ft_putstr(char const *str);
+void				ft_putstr(char const *s);
 void				ft_putnbr(int n);
 void				ft_bzero(void *s, size_t n);
 void				ft_putendl(char const *s);
@@ -44,7 +44,6 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_memdel(void **ap);
 void				ft_strdel(char **as);
-int					ft_strlen(const char *str);
 int					ft_atoi(char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -63,12 +62,13 @@ int					ft_iswhitespace(int c);
 int					ft_intlen(int n);
 int					ft_lstsize(t_list *begin_list);
 int					ft_cntarrwords(char **str);
+size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_cntstrwords(char *str, char c);
 void				*ft_memcpy(void *s1, const void *s2, size_t n);
-void				*ft_memccpy(void *s1, const void *s2, int c, size_t n);
-void				*ft_memmove(void *s1, const void *s2, size_t n);
-void				*ft_memchr(const void *str, int c, size_t n);
+void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void				*ft_memmove(void *dst, const void *src, size_t len);
+void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memalloc(size_t size);
 void				*ft_memset(void *in, int data, size_t len);
 void				ft_lstadd(t_list **alst, t_list *new);
@@ -80,7 +80,10 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strnstr(const char *big, const char *little, size_t n);
+char				*ft_strnstr(
+						const char *big,
+						const char *little,
+						size_t len);
 char				*ft_strdup(const char *str);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strncat(char *dest, const char *src, size_t n);
