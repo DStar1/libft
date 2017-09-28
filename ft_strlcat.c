@@ -6,12 +6,13 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:08:12 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:20:19 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/26 16:27:12 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** function appends the NUL-terminated string src to the end of dst.
+** returns the initial length of dst plus the length of src.
 */
 
 #include "libft.h"

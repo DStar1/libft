@@ -6,12 +6,12 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 14:09:03 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/24 19:32:46 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/09/26 17:14:25 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Returns pointer to first occurrence of str2 in str1
+** Returns pointer to first occurrence of needle in haystack
 */
 
 #include "libft.h"
