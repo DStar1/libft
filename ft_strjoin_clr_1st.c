@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_clr_1st.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/21 17:16:54 by hasmith           #+#    #+#             */
-/*   Updated: 2017/11/06 16:26:55 by hasmith          ###   ########.fr       */
+/*   Created: 2017/11/06 16:23:48 by hasmith           #+#    #+#             */
+/*   Updated: 2017/11/06 16:27:16 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Allocates (with malloc(3)) and returns a “fresh” string
-** ending with ’\0’, result of the concatenation of s1 and s2.
+** strjoin, but clears first element
 */
 
 #include "libft.h"
@@ -44,7 +43,7 @@ static char	*ft_strloop(char const *s1, char const *s2, int s1_len, int s2_len)
 	return (fresh);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin_clr_1st(char const *s1, char const *s2)
 {
 	char	*fresh;
 	int		s1_len;
@@ -55,6 +54,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	fresh = ft_strloop(s1, s2, s1_len, s2_len);
+	free((void*)s1);
 	if (fresh == NULL)
 		return (NULL);
 	return (fresh);

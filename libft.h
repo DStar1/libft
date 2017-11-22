@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 16:56:52 by hasmith           #+#    #+#             */
-/*   Updated: 2017/09/25 14:55:52 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/11/18 21:28:29 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
+# define BUFF_SIZE 10
+# define EXIT(x) if (x) {exit(1);}
+# define RETURN(y, x) if (x) {return (y);}
 
 typedef struct		s_list
 {
@@ -44,6 +48,7 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_memdel(void **ap);
 void				ft_strdel(char **as);
+void				free_array(char **array);
 int					ft_atoi(char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -53,6 +58,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_isnbr(char *c);
+int					round_up_sqrt(int n);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t len);
 int					ft_memcmp(const void *str1, const void *str2, size_t n);
@@ -95,7 +101,12 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_clr_1st(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+int					get_next_line(const int fd, char **line);
+int					ft_cntdelim(const char *str, int c);
+int					ft_power(int nb, int power);
+int					ft_atoi_base(char *nb, int base);
 
 #endif

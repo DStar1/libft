@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 14:07:44 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/31 16:42:11 by hasmith          ###   ########.fr       */
+/*   Created: 2017/10/18 17:07:02 by hasmith           #+#    #+#             */
+/*   Updated: 2017/11/18 15:40:51 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** searches for the first occurrence of the character c
-** (an unsigned char) in the string pointed to by the argument str.
-*/
-
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	free_array(char **array)
 {
-	char	*str1;
+	int i;
 
-	str1 = (char *)str;
-	while (*str1 != c)
+	i = 0;
+	while (array[i] != '\0')
 	{
-		if (*str1 == '\0')
-		{
-			return (NULL);
-		}
-		str1++;
+		free(array[i]);
+		i++;
 	}
-	return (str1);
+	free(array);
 }

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_cntdelim.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 14:07:44 by hasmith           #+#    #+#             */
-/*   Updated: 2017/10/31 16:42:11 by hasmith          ###   ########.fr       */
+/*   Created: 2017/11/10 00:17:53 by hasmith           #+#    #+#             */
+/*   Updated: 2017/11/18 15:30:03 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** searches for the first occurrence of the character c
-** (an unsigned char) in the string pointed to by the argument str.
-*/
-
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int		ft_cntdelim(const char *str, int c)
 {
-	char	*str1;
+	int i;
+	int cnt;
+	int last;
 
-	str1 = (char *)str;
-	while (*str1 != c)
+	last = 0;
+	i = 0;
+	cnt = 0;
+	while (str[i])
 	{
-		if (*str1 == '\0')
+		if (last == 0 && str[i] == c)
 		{
-			return (NULL);
+			cnt++;
+			last = 1;
 		}
-		str1++;
+		if (str[i] != c)
+			last = 0;
+		i++;
 	}
-	return (str1);
+	return (cnt);
 }

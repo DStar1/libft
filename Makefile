@@ -64,8 +64,14 @@ SRC = 	ft_putchar.c \
 		ft_isnbr.c \
 		ft_putarr.c \
 		ft_cntarrwords.c \
+		round_up_sqrt.c \
+		free_array.c \
+		ft_strjoin_clr_1st.c \
+		get_next_line.c \
+		ft_cntdelim.c \
+		ft_atoi_base.c \
+		ft_power.c \
 		ft_lstsize.c
-		#main.c \
 
 all: $(NAME)
 
@@ -73,20 +79,6 @@ $(NAME):
 	gcc -c -Wall -Werror -Wextra $(SRC)
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
-
-cmain:
-	/bin/rm -f $(NAME)
-	gcc -c -Wall -Werror -Wextra $(SRC)
-	ar rc $(NAME) *.o
-	ranlib $(NAME)
-	/bin/rm -f *.o
-	gcc main.c libft.a
-	./a.out
-
-main: #compiles the main.c file with libft.a after cleaning *.o's take this out when turning in
-	/bin/rm -f *.o
-	gcc main.c libft.a
-	./a.out
 
 clean:
 	/bin/rm -f *.o
