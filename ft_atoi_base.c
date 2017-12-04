@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 12:26:05 by hasmith           #+#    #+#             */
-/*   Updated: 2017/11/17 12:39:55 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/11/26 20:15:26 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int	length_number(char *str, int base)
 	int		length;
 
 	length = 0;
+	// if (str[0] && str[1] && str[0] == '0' && str[1] == 'x')
+	// 	length = 2;
 	while (str[length])
 	{
 		if (convert_and_check_nb(str[length], base) == -1)
@@ -62,5 +64,6 @@ int			ft_atoi_base(char *nb, int base)
 		nb++;
 		length--;
 	}
+	//return (result == -2147483648) ? 2147483648 : result;
 	return (result);
 }

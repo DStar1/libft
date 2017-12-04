@@ -6,7 +6,7 @@
 /*   By: hasmith <hasmith@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/22 16:56:52 by hasmith           #+#    #+#             */
-/*   Updated: 2017/11/18 21:28:29 by hasmith          ###   ########.fr       */
+/*   Updated: 2017/11/30 19:55:14 by hasmith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@
 # include <fcntl.h>
 # define BUFF_SIZE 10
 # define EXIT(x) if (x) {exit(1);}
+# define IF(x, y) if (x) {(y);}
+# define IFELSE(x, y, z) if (x) {(y);} else {(z);}
+# define IFYZ(x, y, z) if (x) {(y); z;}
 # define RETURN(y, x) if (x) {return (y);}
+# define BRACKETS(x, y) {x;y;}
+# define B(x) {x;}
 
 typedef struct		s_list
 {
@@ -108,5 +113,6 @@ int					get_next_line(const int fd, char **line);
 int					ft_cntdelim(const char *str, int c);
 int					ft_power(int nb, int power);
 int					ft_atoi_base(char *nb, int base);
+char				*ft_itoa_base(int value, int base);
 
 #endif
